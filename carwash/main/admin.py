@@ -7,4 +7,14 @@ class WorkerAdmin(admin.ModelAdmin):
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    pass
+   list_display = (
+       'worker', 'car_type', 'wash_type', 'model', 'number', 'user'
+   )
+   list_display_links = (
+       'worker', 'car_type', 'wash_type', 'model', 'number', 'user'
+   )
+
+   list_filter = (
+        'worker', 'car_type', 'wash_type', 'model'
+    )
+   

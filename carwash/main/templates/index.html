@@ -1,23 +1,90 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static   %}
+{% load widget_tweaks poll_extras %}
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'assets/vendor/select2/css/select2.min.css' %}">
+
+
+{% endblock extra_css %}
+
 {% block content %}
+
 <div class="row">
-									<div class="col-md-12">
+	<form>
+									<div class="col-md-12 col-xl-12 col-sm-12 col-lg-12">
 										<!-- BASIC TABLE -->
-										<div class="panel">
-											<div class="panel-heading">
-												<h3 class="panel-title">Cars Table</h3>
-											</div>
+								
+
+											<div class="panel">
+											
+											<ul  style="list-style-type: none;">
+
+												<li id="navli">
+
+												<label for="">Дата начала</label>
+												<input type="date" value="{{ startdate }}" name="startdate" class="form-control">
+												
+											</li>
+
+												<li id="navli" >
+
+												<label for="">Дата окончания</label>
+												<input type="date" value="{{ enddate }}" name="enddate" class="form-control">
+											
+											</li>
+												<li id="navli" style="width: 180px;" >	
+													<label for="" >Тип автомобиля</label>
+													
+													<select class=" select2 form-control" name="cartype" >
+													<option value="all" {% if select_car_type == 'all' %} selected="selected" {% endif %} >Все</option>
+													<option value="C" {% if select_car_type == 'C' %} selected="selected"{% endif %} >Cars</option>
+													<option value="MSM"  {% if select_car_type == 'MSM' %} selected="selected"{% endif %}  >Medium size machines</option>
+													<option value="T"  {% if select_car_type == 'T' %} selected="selected"{% endif %} >Trucks</option>
+
+												
+
+												
+												</select>
+											</li>
+
+												<li id="navli"  style="width: 180px;">
+													<label for="">Рабочие</label>
+													
+													<select class=" select2 form-control" name="worker" >
+													<option value="all" {% if select_worker == 'all' %} selected="selected" {% endif %} >Все</option>
+													{% for i in worker_list %} 
+														<option value="{{ i.full_name }}" {% if select_worker == i.full_name %} selected="selected" {% endif %}>{{ i.full_name }}</option>
+															
+													{% endfor %}
+												
+												</select>
+												</li>
+												<li id="navli"><button type="submit" class="btn btn-info">Поиск</button></li>
+												<li id="navli"><a class="btn btn-danger" href="{% url 'car' %}">Очисте</a></li>
+
+
+												
+											</ul>
+												
+
+											
+										</form>
+
 											<div class="panel-body">
 												<table class="table">
 													<thead>
 														<tr>
 															<th>#</th>
-															<th>Model</th>
-															<th>Color</th>
-															<th>Number</th>
+															<th>Worker</th>
+															<th>Created</th>
 															<th>Car type</th>
 															<th>Wash type</th>
+															<th>Model</th>
+															<th>Number</th>
+															<th>Price</th>
+
+															
 
 
 														</tr>
@@ -26,11 +93,15 @@
 													{% for car in  cars %}	
 														<tr>
 															<td>{{ car.id }}</td>
-															<td>{{ car.model }}</td>
-															<td>{{ car.color }}</td>
-															<td>{{ car.number }}</td>
+															<td>{{ car.worker }}</td>
+															<td>{{ car.created|date:'Y-m-d ' }}</td>
 															<td>{{ car.get_car_type_display }}</td>
-															<td>{{ car.get_wash_type_display }}</td>
+															<td>{{ car.wash_type }}</td>
+															<td>{{ car.model }}</td>
+															<td>{{ car.number }}</td>
+															<td>{{ car.price }}</td>
+
+														
 															
 														</tr>
 														{% endfor %}
@@ -39,8 +110,17 @@
 											</div>
 										</div>
 					
-					
 							<!-- END REALTIME CHART -->
-						</div>
+									</div>
 					</div>
 	{% endblock %}
+
+	{% block extra_js %}
+	<script src="{% static '.assets/vendor/select2/js/select2.full.min.js' %}"></script>
+	<script>
+        $('.select2').select2()
+
+    
+    </script>
+
+	{% endblock extra_js %}

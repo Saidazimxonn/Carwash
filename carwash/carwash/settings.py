@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,8 @@ INSTALLED_APPS = [
     'payment',
     'frontend',
     'active_link',
+    'widget_tweaks',
+    'frontend.templatetags',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'frontend.middleware.RequireLoginMiddleware',
 ]
 
 ROOT_URLCONF = 'carwash.urls'
@@ -124,4 +128,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+)
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_REQUIRED_URLS = (
+    r'(.*)',
+)
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_REQUIRED_URLS_EXCEPTIONS = (
+  
+    r'/api/v1/(.*)$',
+    '/accounts/login/',
+    '/registration/',
 )

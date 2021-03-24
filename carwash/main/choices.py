@@ -1,4 +1,5 @@
 WASH_TYPE = [
+    ('D', '--------'),
     ('TW','Thorough washing'),
     ('WWST','Washing with a special tool'),
     ('ON', 'Only Karcher'),
@@ -9,9 +10,8 @@ WASH_TYPE = [
 
 
 ]
-
 CARS_TYPE = [
-
+    ('D', '--------'),
     ('T', 'Trucks'),
     ('MSM', 'Medium size machines'),
     ('C', 'Cars'),

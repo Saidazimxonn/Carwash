@@ -14,9 +14,8 @@
 														<tr>
 															<th>#</th>
 															<th>Full name</th>
-															<th>Car</th>
-															<th>Car type</th>
-															<th>Wash type</th>
+															<th>Started work</th>
+															<th>Phone</th>
 															<th>Status</th>
 
 
@@ -27,10 +26,10 @@
 														<tr>
 															<td>{{ worker.id }}</td>
 															<td>{{ worker.full_name }}</td>
-															<td>{{ worker.car }}</td>
-															<td>{{ worker.car_type }}</td>
-															<td>{{ worker.wash_type }}</td>
-															<td>{{ worker.status }}</td>
+														
+															<td>{{ worker.started_work }}</td>
+															<td>{{ worker.phone }}</td>
+															<td>{{ worker.get_status_display }}</td>
 															
 															
 														</tr>

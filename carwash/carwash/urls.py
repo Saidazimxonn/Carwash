@@ -22,8 +22,9 @@ from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
     path('', include('main.urls')),
   
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

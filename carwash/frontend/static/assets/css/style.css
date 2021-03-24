@@ -1,0 +1,25 @@
+#navli {
+    padding-top: 20px;
+    padding-left:20px;
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+    zoom:1;
+    *display:inline;
+ 
+  }
+#price_l {
+  padding-top: 20px;
+  padding-left:20px;
+  display: inline-block;
+  /* You can also add some margins here to make it look prettier */
+  zoom:1;
+  *display:inline;
+  float: center;
+}
+#carwash{
+  margin-left: -30px;
+  margin-top: -50px;
+  width: 200px;
+  height: 100px;
+  margin-bottom: -30px;
+}
