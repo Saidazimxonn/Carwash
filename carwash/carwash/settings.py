@@ -142,3 +142,7 @@ LOGIN_REQUIRED_URLS_EXCEPTIONS = (
     '/accounts/login/',
     '/registration/',
 )
+
+
+
+

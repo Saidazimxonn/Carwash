@@ -1,8 +1,11 @@
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, DetailView
 from .models import Car ,Worker
 from payment.models import PriceWash
+from django.utils import timezone
 
 from django.db.models import Sum
+
+
 
 class CarsView(TemplateView):
     template_name = 'index.html'
@@ -63,6 +66,8 @@ class AddCarsView(CreateView):
      form.instance.user= self.request.user
      return super(AddCarsView, self).form_valid(form)
     
+
+
 class WorkerView(TemplateView):
     template_name = 'worker.html'
 
@@ -70,3 +75,15 @@ class WorkerView(TemplateView):
         context = super(WorkerView, self).get_context_data(**kwargs)
         context['workers'] = Worker.objects.all()
         return context
+
+
+
+class CarsDetailView(DetailView):
+    template_name = 'c_detail.html'
+    model = Car
+    context_object_name = 'cars'
+    
+
+
+
+

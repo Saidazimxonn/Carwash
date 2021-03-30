@@ -75,11 +75,12 @@
 												<table class="table">
 													<thead>
 														<tr>
-															<th>#</th>
-															<th>Worker</th>
+															<!-- <th>#</th> -->
+														
 															<th>Created</th>
 															<th>Car type</th>
-															<th>Wash type</th>
+															<th>Worker</th>
+															<!-- <th>Wash type</th> -->
 															<th>Model</th>
 															<th>Number</th>
 															<th>Price</th>
@@ -92,16 +93,21 @@
 													<tbody>
 													{% for car in  cars %}	
 														<tr>
-															<td>{{ car.id }}</td>
-															<td>{{ car.worker }}</td>
+															<!-- <td>{{ car.id }}</td> -->
 															<td>{{ car.created|date:'Y-m-d ' }}</td>
 															<td>{{ car.get_car_type_display }}</td>
-															<td>{{ car.wash_type }}</td>
+															<td>{{ car.worker }}</td>
+
+															<!-- <td>{{ car.wash_type }}</td> -->
 															<td>{{ car.model }}</td>
 															<td>{{ car.number }}</td>
 															<td>{{ car.price }}</td>
-
-														
+															<td>
+																<a href="{% url 'car_detail' car.pk %}"
+													               <span style="size: 150px;" class="btn btn-success btn-xs   lnr lnr-eye"></span>
+															</a>
+													
+															</td>
 															
 														</tr>
 														{% endfor %}

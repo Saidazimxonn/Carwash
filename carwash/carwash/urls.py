@@ -28,3 +28,8 @@ urlpatterns = [
     path('', include('main.urls')),
   
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+from django.contrib import admin
+
+admin.site.site_header = 'Clean & Green Carwash administration'                    # default: "Django Administration"
+admin.site.index_title = 'Clean & Green Carwash'                 # default: "Site administration"
+admin.site.site_title = 'Clean & Green Carwash'

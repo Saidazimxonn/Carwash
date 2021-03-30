@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+ <div class="col-md-1"></div>   
+
+<div class="col-md-10">
+    <!-- BASIC TABLE -->
+    <div class="panel">
+        <div class="panel-heading">
+
+            <h3 class="panel-title"> {{ cars.model }}: <b>{{ cars.number }}</b></h3>
+			<hr>
+
+        </div>
+        <div class="navbar-btn-right" >
+            <a class="btn btn-danger " id="in_car"  href="{% url 'car' %}">Назад</a>
+           	</div>	
+        <div class="panel-body">
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>info</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    
+                        <tr>
+                            <th>id</th>
+                            <td>{{ cars.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>User</th>
+                            <td>{{ cars.user }}</td>
+                        </tr>
+                        <tr>
+                            <th>Worker</th>
+                            <td>{{ cars.worker }}</td>
+                        </tr>
+                        <tr>
+                            <th>Car type</th>
+                            <td>{{ cars.get_car_type_display }}</td>
+                        </tr>
+                        <tr>
+                            <th>Wash type</th>
+                            <td>{{ cars.get_wash_type_display }}</td>
+                        </tr>
+                        <tr>
+                            <th>Model</th>
+                            <td>{{ cars.model }}</td>
+                        </tr>
+                        <tr>
+                            <th>Number</th>
+                            <td>{{ cars.number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>{{ cars.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Created</th>
+                            <td>{{ cars.created }}</td>
+                        </tr>
+                       
+                       
+
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- END BASIC TABLE -->
+</div>
+<div class="col-md-1"></div> 
+</div>  
+{% endblock %}
+<!-- <table class="table">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>User</th>
+            <th>Worker</th>
+            <th>Car type</th>
+            <th>Wash type</th>
+            <th>Model</th>
+            <th>Number</th>
+            <th>Price</th>
+            <th>Created</th>
+         
+            
+
+         </tr>
+    
+     
+    </thead>
+   <tbody>
+    
+       <tr>
+           <td>{{ cars.id }}</td>
+           <td>{{ cars.user }}</td>
+           <td>{{ cars.worker }}</td>
+           <td>{{ cars.get_car_type_display }}</td>
+           <td>{{ cars.get_wash_type_display }}</td>
+           <td>{{ cars.model }}</td>
+           <td>{{ cars.number }}</td>
+           <td>{{ cars.price }}</td>
+           <td>{{ cars.created }}</td>
+
+          
+
+          
+
+           
+
+        
+
+          
+
+          
+
+     
+
+
+       </tr>
+  
+   </tbody>
+</table> -->
